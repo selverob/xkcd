@@ -20,3 +20,7 @@ Set _refresh every_ to 8640 so that it will try to download new strip every 24 h
 Set _refresh every_ to 4320 (I'm not sure in what order GeekTool refreshes the widgets and we wouldn't like seeing the comic 24 hours after it was published, right?)
 
 5. Enjoy xkcd on your desktop!
+
+Issues
+--------------
+* It probably won't work on Windows
