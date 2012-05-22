@@ -8,20 +8,16 @@ category:         Application
 License-file:     LICENSE
 Author:           Róbert Selvek
 Maintainer:       robert.selvek@gmail.com
-Cabal-Version:    >= 1.2
+Cabal-Version:    >= 1.6
 Build-Type:       Simple
 
 Executable xkcd
   Main-is:        main.hs
   Build-Depends:  base >= 4 && < 5, HTTP >= 4000.1.2, tagsoup >= 0.12.6, 
-    bytestring >= 0.9, network >= 2.3, haskell98 >= 1.1
+    bytestring >= 0.9, network >= 2.3, haskell98 >= 1.1, directory >= 1.1, filepath >= 1.2
   Hs-Source-Dirs: src
+  ghc-options:    -Wall
 
 source-repository head
   type:     git
   location: git://github.com/sellweek/xkcd.git
-
-source-repository this
-  type:     darcs
-  location: http://darcs.haskell.org/cabal-branches/cabal-1.6/
-  tag:      0.1

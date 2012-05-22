@@ -16,7 +16,7 @@ getImageURL = do
   return $ fromJust (getImageString $ getImageTag tags)
   where
     getImageTag :: [Tag String] -> Tag String
-    getImageTag tags = (dropWhile (/= TagOpen "div" [("id", "comic")]) tags) !! 2
+    getImageTag tags = dropWhile (/= TagOpen "div" [("id", "comic")]) tags !! 2
 
 -- |Searches for the first @img@ tag in a list and returns its @src@ attribute
 getImageString :: Tag String -> Maybe String

@@ -1,9 +1,9 @@
 module Main where
 import XKCD
-import IO
 import System.Environment (getArgs)
-import Directory (getCurrentDirectory)
+import System.Directory (getCurrentDirectory)
 import System.Exit (exitSuccess)
+import System.FilePath (pathSeparator)
 
 main :: IO ()
 main = getPath >>= downloadXKCD
@@ -13,10 +13,11 @@ getPath :: IO FilePath
 getPath = do
   path <- processArgs
   case path of 
-    Just path -> return path 
-    Nothing -> fmap (++ "/strip.jpg") $ getCurrentDirectory
+    Just path' -> return path' 
+    Nothing -> fmap (++ fileName) getCurrentDirectory
+    where fileName = pathSeparator:"strip.jpg"
 
--- |Checks if the arguments contain a path, or help flag. If they do, prints the USAGE message
+-- |Checks whether the arguments contain a path, or help flag. If they do, prints the USAGE message
 processArgs :: IO (Maybe FilePath)
 processArgs = do
   args <- getArgs
@@ -25,9 +26,7 @@ processArgs = do
     ("-h":_) -> printHelp
     ("--help":_) -> printHelp
     path -> return $ Just . head $ path
-  where printHelp = do
-    putStrLn help
-    exitSuccess
+  where printHelp = putStrLn help >> exitSuccess
 
 -- |USAGE string
 help :: String
