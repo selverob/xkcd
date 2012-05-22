@@ -11,7 +11,7 @@ You can use GeekTool on OS X to show the current strip on your desktop. How to d
 
 1. Download GeekTool from App Store
 
-2. Clone this repo and `cabal install` this program
+2. `cabal install xkcd`
 
 3. Put a _shell_ widget on your desktop and set the xkcd executable as command. Put a directory into which it can download image as the argument. It should look like this: `xkcd ~/comics/newXkcd.jpg`
 Set _refresh every_ to 8640 so that it will try to download new strip every 24 hours.
