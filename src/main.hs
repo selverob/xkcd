@@ -15,7 +15,7 @@ getPath = do
   case path of 
     Just path' -> return path' 
     Nothing -> fmap (++ fileName) getCurrentDirectory
-    where fileName = pathSeparator:"strip.jpg"
+    where fileName = pathSeparator:"strip.png"
 
 -- |Checks whether the arguments contain a path, or help flag. If they do, prints the USAGE message
 processArgs :: IO (Maybe FilePath)
